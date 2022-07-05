@@ -56,7 +56,11 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-mongoose.connect("mongodb://localhost:27017/Carles", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://karles:5r85w5BWRjRgTSzN@cluster0.mo4gdrp.mongodb.net/?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'Carles'
+});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
