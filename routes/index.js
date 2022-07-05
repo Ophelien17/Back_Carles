@@ -123,8 +123,8 @@ router.post('/article/add', async (req, res, next) => {
 })
 
 //Ajouter un article au carton
-router.put('/article/addToBox/:Id', async (req, res, next) => {
-    await Articles.updateOne({_id: mongosse.Types.ObjectId(req.params.Id)}, {$set: {carton: req.body.carton}})
+router.put('/article/addToBox/:Id', (req, res, next) => {
+    Articles.updateOne({_id: mongosse.Types.ObjectId(req.params.Id)}, {$set: {carton: req.body.carton}})
         .then(() => {
             res.status(204).send()
         })
